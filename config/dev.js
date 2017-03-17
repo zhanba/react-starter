@@ -27,6 +27,8 @@ module.exports = function () {
 
       publicPath: '/',
       // match the output `publicPath`
+
+      historyApiFallback: true,
     },
     plugins: [
       new webpack.HotModuleReplacementPlugin(),

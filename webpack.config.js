@@ -1,12 +1,12 @@
-var TARGET = process.env.npm_lifecycle_event;
+const TARGET = process.env.npm_lifecycle_event;
 
-function buildConfig(env) {
-  if(TARGET === 'start') {
+function buildConfig() {
+  if (TARGET === 'start') {
     return require('./config/dev.js');
   }
 
-  if(TARGET === 'build') {
-    return require('./config/prod.js')
+  if (TARGET === 'build') {
+    return require('./config/prod.js');
   }
 }
 

@@ -3,10 +3,6 @@ const { resolve } = require('path');
 
 module.exports = function () {
   return {
-    entry: [
-      './index.js',
-      // the entry point of our app
-    ],
     output: {
       path: resolve(__dirname, '../dist'),
       filename: 'bundle.js',

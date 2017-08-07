@@ -4,6 +4,10 @@ const commonConfig = require('./base.js');
 
 module.exports = function () {
   return webpackMerge(commonConfig(), {
+    entry: [
+      './index.js',
+      // the entry point of our app
+    ],
     plugins: [
       new webpack.LoaderOptionsPlugin({
         minimize: true,

@@ -2,13 +2,13 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import styles from './App.css';
 
-const Home = () => <h1>Home</h1>;
+const Home = () => <h1>Home comp</h1>;
 const About = () => <h1>About</h1>;
 const Contact = () => <h1>Contact</h1>;
 
 const Links = () => (
   <nav>
-    <Link to="/">Home</Link>
+    <Link to="/" className={styles.app}>Home</Link>
     <Link to={{ pathname: '/about' }}>About</Link>
     <Link replace to="/contact">Contact</Link>
   </nav>

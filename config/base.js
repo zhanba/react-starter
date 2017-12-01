@@ -27,7 +27,10 @@ module.exports = function () {
           use: [
             'babel-loader'
           ],
-          exclude: /node_modules/,
+          options: {
+            cacheDirectory: true
+          },
+          exclude: /(node_modules|dist)/,
         },
         {
           test: /\.css$/,

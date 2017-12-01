@@ -30,6 +30,7 @@ module.exports = function () {
     },
     plugins: [
       new CleanWebpackPlugin(['../dist']),
+      new webpack.optimize.ModuleConcatenationPlugin(), // Scope Hoisting
       new webpack.HashedModuleIdsPlugin(), // keep vendor chunk hash stable, useful for cache
       new webpack.optimize.CommonsChunkPlugin({
         name: 'vendor',

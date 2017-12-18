@@ -8,3 +8,11 @@
 
 ## Project
 [deck.gl](https://github.com/uber/deck.gl)
+
+
+## redux improved solution
+https://github.com/pauldijou/redux-act
+
+https://github.com/Bloomca/redux-tiles
+
+https://github.com/dvajs/dva

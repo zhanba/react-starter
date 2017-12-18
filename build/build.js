@@ -1,5 +1,5 @@
 const webpack = require('webpack')
-const config = require('../config/prod.js')()
+const config = require('./webpack.config.prd')()
 
 const createCompiler = config => {
   const compiler = webpack(config)

@@ -24,11 +24,11 @@ module.exports = function () {
         },
         {
           test: /\.js$/,
-          use: [
-            'babel-loader'
-          ],
-          options: {
-            cacheDirectory: true
+          use: {
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: true
+            },
           },
           exclude: /(node_modules|dist)/,
         },
@@ -39,20 +39,6 @@ module.exports = function () {
             'style-loader',
             'css-loader'
           ]
-        },
-        {
-          test: /\.css$/,
-          include: [resolve('src/components'), resolve('src/layouts'), resolve('src/views')], // use css modules in src/component directory
-          use: [
-            'style-loader',
-            {
-              loader: 'css-loader',
-              options: {
-                modules: true,
-                localIdentName: '[path][name]__[local]--[hash:base64:5]'
-              }
-            }
-          ],
         }
       ],
     },

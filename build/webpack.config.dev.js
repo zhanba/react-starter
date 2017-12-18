@@ -1,7 +1,8 @@
 const webpack = require('webpack')
 const { resolve } = require('path')
 const webpackMerge = require('webpack-merge')
-const commonConfig = require('./base.js')
+const commonConfig = require('./webpack.config.base')
+const config = require('./config')
 
 module.exports = function () {
   return webpackMerge(commonConfig(), {
@@ -16,7 +17,7 @@ module.exports = function () {
       // the entry point of our app
     ],
     output: {
-      path: resolve('dist'),
+      path: config.outputPath,
       filename: 'bundle.js',
       publicPath: '/',
     },
@@ -25,7 +26,7 @@ module.exports = function () {
       hot: true,
       // enable HMR on the server
 
-      contentBase: resolve(__dirname, '../dist'),
+      contentBase: resolve(__dirname, config.outputPath),
       // match the output path
 
       publicPath: '/',

@@ -1,10 +1,10 @@
 const webpack = require('webpack')
 const webpackMerge = require('webpack-merge')
-const { resolve } = require('path')
-const commonConfig = require('./base.js')
+const commonConfig = require('./webpack.config.base')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
   .BundleAnalyzerPlugin
+const config = require('./config')
 
 module.exports = function () {
   return webpackMerge(commonConfig(), {
@@ -24,12 +24,12 @@ module.exports = function () {
       ]
     },
     output: {
-      path: resolve('dist'),
+      path: config.outputPath,
       filename: 'js/[name].[chunkhash].js',
-      publicPath: '/'
+      publicPath: config.publicPath
     },
     plugins: [
-      new CleanWebpackPlugin(['../dist']),
+      new CleanWebpackPlugin([config.outputPath]),
       new webpack.optimize.ModuleConcatenationPlugin(), // Scope Hoisting
       new webpack.HashedModuleIdsPlugin(), // keep vendor chunk hash stable, useful for cache
       new webpack.optimize.CommonsChunkPlugin({

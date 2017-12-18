@@ -3,15 +3,16 @@ const webpack = require('webpack')
 const webpackDevMiddleware = require('webpack-dev-middleware')
 const webpackHotMiddleware = require('webpack-hot-middleware')
 const opn = require('opn')
-const config = require('../config/dev.js')()
+const webpackconfig = require('./webpack.config.dev')()
+const config = require('./config')
 
 const app = express()
-const compiler = webpack(config)
+const compiler = webpack(webpackconfig)
 
 app.use(
   webpackDevMiddleware(compiler, {
     noInfo: true,
-    publicPath: config.output.publicPath
+    publicPath: webpackconfig.output.publicPath
   })
 )
 
@@ -20,7 +21,7 @@ app.use(webpackHotMiddleware(compiler, {
   heartbeat: 2000
 }))
 
-app.listen(3000, function () {
-  opn('http://localhost:3000')
-  console.log('App listening on port 3000!\n')
+app.listen(config.port, function () {
+  opn(`http://localhost:${config.port}`)
+  console.log(`App listening on port ${config.port}!\n`)
 })

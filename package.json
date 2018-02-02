@@ -1,18 +1,18 @@
 {
-  "name": "data-labeler",
-  "version": "0.0.1",
-  "description": "",
+  "name": "react-starter",
+  "version": "0.2.0",
+  "description": "react starter use typescript",
   "main": "index.js",
   "scripts": {
     "start": "npm run dev",
     "dev": "nodemon --ignore src/ build/serve.js",
     "build": "node build/build.js",
-    "lint": "eslint --fix src",
+    "lint": "tslint --fix src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "react",
-    "blog"
+    "typescript"
   ],
   "author": "zhanba",
   "license": "MIT",
@@ -81,13 +81,11 @@
     "axios": "^0.16.2",
     "babel-polyfill": "^6.26.0",
     "history": "^4.7.2",
-    "konva": "^1.7.6",
     "less-vars-to-js": "^1.2.1",
     "react": "^16.2.0",
     "react-css-modules": "^4.7.1",
     "react-dom": "^16.2.0",
     "react-hot-loader": "^3.1.3",
-    "react-konva": "^1.6.5",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "redbox-react": "^1.5.0",

@@ -1,28 +1,24 @@
+import 'babel-polyfill'
 import { AppContainer } from 'react-hot-loader'
 // AppContainer is a necessary wrapper component for HMR
 
-import React from 'react'
-import PropTypes from 'prop-types'
-import ReactDOM from 'react-dom'
-import Redbox from 'redbox-react'
+import * as React from 'react'
+import * as ReactDOM from 'react-dom'
+import Redbox, { RedBoxProps } from 'redbox-react'
 
 import App from './App'
 import configureStore from './redux/configureStore'
 
 const store = configureStore()
 
-const CustomErrorReporter = ({ error }) => <Redbox error={error} />
+const CustomErrorReporter = (prop: RedBoxProps) => <Redbox error={prop.error} />
 
-CustomErrorReporter.propTypes = {
-  error: PropTypes.instanceOf(Error).isRequired
-}
-
-const render = Component => {
+const render = (Component: React.ReactElement<any>) => {
   ReactDOM.render(
     <AppContainer errorReporter={CustomErrorReporter}>
       {Component}
     </AppContainer>,
-    document.getElementById('root')
+    document.getElementById('root') as HTMLElement,
   )
 }
 

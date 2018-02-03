@@ -1,7 +1,7 @@
 {
   "name": "react-starter",
   "version": "0.2.0",
-  "description": "react starter use typescript",
+  "description": "react starter with typescript",
   "main": "index.js",
   "scripts": {
     "start": "npm run dev",
@@ -14,6 +14,10 @@
     "react",
     "typescript"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:zhanba/graph-lib.git"
+  },
   "author": "zhanba",
   "license": "MIT",
   "devDependencies": {
@@ -46,7 +50,6 @@
     "html-webpack-plugin": "^2.30.1",
     "less": "^2.7.2",
     "less-loader": "^4.0.5",
-    "node-gyp": "^3.6.2",
     "nodemon": "^1.12.5",
     "open-browser-webpack-plugin": "0.0.5",
     "opn": "^5.1.0",

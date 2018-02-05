@@ -1,4 +1,26 @@
 const config = require('./config')
+const tsImportPluginFactory = require('ts-import-plugin')
+
+const babelLoader = {
+  loader: 'babel-loader',
+  options: {
+    cacheDirectory: true
+  },
+}
+
+const tsLoader = {
+  loader: 'ts-loader',
+  options: {
+    transpileOnly: true,
+    getCustomTransformers: () => ({
+      before: [ tsImportPluginFactory({
+        libraryName: 'antd',
+        libraryDirectory: 'lib',
+        style: true
+      })]
+    })
+  },
+}
 
 const styleLoader = {
   loader: 'style-loader' // creates style nodes from JS strings
@@ -15,12 +37,14 @@ const cssModulesLoader = {
     modules: true,
   }
 }
-const TypingsCssModulesLoader = {
+
+const TypingsLessModulesLoader = {
   loader: 'typings-for-css-modules-loader',
   options: {
     importLoaders: 2,
     modules: true,
-    namedExport: true
+    namedExport: true,
+    camelCase: true,
   }
 }
 
@@ -35,10 +59,12 @@ const lessLoader = {
 
 module.exports = {
   loaders: {
+    babelLoader,
+    tsLoader,
     styleLoader,
     cssLoader,
     cssModulesLoader,
-    TypingsCssModulesLoader,
+    TypingsLessModulesLoader,
     postcssLoader,
     lessLoader
   }

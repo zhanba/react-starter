@@ -1,9 +1,9 @@
 const config = require('./config')
 const { resolve } = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const tsImportPluginFactory = require('ts-import-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const ForkTsCheckerNotifierWebpackPlugin = require('fork-ts-checker-notifier-webpack-plugin')
+const util = require('./util')
 
 module.exports = function () {
   return {
@@ -30,27 +30,12 @@ module.exports = function () {
         },
         {
           test: /\.js$/,
-          use: {
-            loader: 'babel-loader',
-            options: {
-              cacheDirectory: true
-            },
-          },
+          use: util.loaders.babelLoader,
           exclude: /(node_modules|dist)/,
         },
         {
           test: /\.tsx?$/,
-          loader: 'ts-loader',
-          options: {
-            transpileOnly: true,
-            getCustomTransformers: () => ({
-              before: [ tsImportPluginFactory({
-                libraryName: 'antd',
-                libraryDirectory: 'lib',
-                style: true
-              })]
-            })
-          },
+          use: [util.loaders.babelLoader, util.loaders.tsLoader],
           exclude: /node_modules/
         },
         {

@@ -1,18 +1,16 @@
 import * as React from 'react'
-import CSSModules from 'react-css-modules'
 import * as styles from './MainLayout.less'
 
 import { Breadcrumb, Icon, Layout, Menu } from 'antd'
 const { SubMenu } = Menu
 const { Header, Content, Sider } = Layout
 
-@CSSModules(styles)
 class LayoutComponent extends React.Component<any, any> {
   public render() {
     return (
       <Layout>
-        <Header styleName="header">
-          <div styleName="logo" />
+        <Header className={styles.header}>
+          <div className={styles.logo} />
         </Header>
         <Layout>
           <Sider width={200} style={{ background: '#333744' }}>
@@ -50,7 +48,7 @@ class LayoutComponent extends React.Component<any, any> {
               <Breadcrumb.Item>App</Breadcrumb.Item>
             </Breadcrumb>
             <Content style={{ background: '#fff', padding: 24, margin: 0, minHeight: 280 }}>
-              Content
+              Content12
             </Content>
           </Layout>
         </Layout>
@@ -60,4 +58,3 @@ class LayoutComponent extends React.Component<any, any> {
 }
 
 export default LayoutComponent
-// export default CSSModules(LayoutComponent, styles)

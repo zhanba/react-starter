@@ -1,7 +1,7 @@
 const webpack = require('webpack')
 const { resolve } = require('path')
 const webpackMerge = require('webpack-merge')
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
+// const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 const commonConfig = require('./webpack.config.base')
 const config = require('./config')
 const util = require('./util')
@@ -23,7 +23,7 @@ module.exports = function () {
       filename: 'bundle.js',
       publicPath: '/',
     },
-    devtool: 'source-map',
+    devtool: 'inline-source-map',
     module: {
       rules: [
         {
@@ -31,7 +31,7 @@ module.exports = function () {
           exclude: /node_modules/, // exclude antd default style
           use: [
             util.loaders.styleLoader,
-            util.loaders.TypingsCssModulesLoader,
+            util.loaders.TypingsLessModulesLoader,
             util.loaders.postcssLoader,
             util.loaders.lessLoader
           ]
@@ -68,17 +68,17 @@ module.exports = function () {
       new webpack.HotModuleReplacementPlugin(),
       // enable HMR globally
 
-      new webpack.NamedModulesPlugin(),
+      new webpack.NamedModulesPlugin()
       // prints more readable module names in the browser console on HMR updates
 
-      new HardSourceWebpackPlugin({
-        // Either an absolute path or relative to webpack's options.context.
-        cacheDirectory: resolve(config.path.rootPath, 'node_modules/.cache/hard-source/[confighash]'),
-        // Either an absolute path or relative to webpack's options.context.
-        // Sets webpack's recordsPath if not already set.
-        recordsPath: resolve(config.path.rootPath, 'node_modules/.cache/hard-source/[confighash]/records.json'),
-        // Either a string of object hash function given a webpack config.
-      })
+      // new HardSourceWebpackPlugin({
+      //   // Either an absolute path or relative to webpack's options.context.
+      //   cacheDirectory: resolve(config.path.rootPath, 'node_modules/.cache/hard-source/[confighash]'),
+      //   // Either an absolute path or relative to webpack's options.context.
+      //   // Sets webpack's recordsPath if not already set.
+      //   recordsPath: resolve(config.path.rootPath, 'node_modules/.cache/hard-source/[confighash]/records.json'),
+      //   // Either a string of object hash function given a webpack config.
+      // })
     ],
   })
 }

@@ -45,7 +45,7 @@ module.exports = function () {
           exclude: /node_modules/, // exclude antd default style
           use: extractLess.extract({
             use: [
-              util.loaders.TypingsCssModulesLoader,
+              util.loaders.TypingsLessModulesLoader,
               util.loaders.postcssLoader,
               util.loaders.lessLoader
             ]

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run dev",
-    "dev": "nodemon --ignore src/ build/serve.js",
+    "dev": "nodemon build/serve.js",
     "build": "node build/build.js",
     "lint": "tslint --fix src",
     "test": "echo \"Error: no test specified\" && exit 1"

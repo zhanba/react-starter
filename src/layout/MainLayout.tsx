@@ -9,11 +9,11 @@ class LayoutComponent extends React.Component<any, any> {
   public render() {
     return (
       <Layout>
-        <Header className={styles.header}>
+        <Header>
           <div className={styles.logo} />
         </Header>
         <Layout>
-          <Sider width={200} style={{ background: '#333744' }}>
+          <Sider width={200} style={{ background: '#233744' }}>
             <Menu
               mode="inline"
               theme="dark"
